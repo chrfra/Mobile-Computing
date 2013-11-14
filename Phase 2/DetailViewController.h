@@ -11,6 +11,12 @@
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) IBOutlet UILabel *titleOut;
+@property (weak, nonatomic) IBOutlet UILabel *authorOut;
+@property (weak, nonatomic) IBOutlet UILabel *isbnOut;
+@property (weak, nonatomic) IBOutlet UILabel *priceOut;
+@property (weak, nonatomic) IBOutlet UILabel *courseOut;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+
 @end

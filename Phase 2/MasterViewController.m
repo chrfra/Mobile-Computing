@@ -7,8 +7,9 @@
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+#import "SimpleBookManager.h"
+#import "Book.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -35,7 +36,10 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    _manager = [[SimpleBookManager alloc] init];
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -51,6 +55,7 @@
     [_objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSLog(@"Added");
 }
 
 #pragma mark - Table View
@@ -62,15 +67,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _manager.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+//    NSDate *object = _objects[indexPath.row];
+    Book *object = [_manager bookAtIndex:indexPath.row];
+//    cell.textLabel.text = [object description];
+    cell.textLabel.text = object.title;
     return cell;
 }
 
@@ -89,6 +96,8 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
+
+
 
 /*
 // Override to support rearranging the table view.
@@ -119,7 +128,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setDetailItem: [_manager bookAtIndex:indexPath.row]];
     }
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "Book.h"
+
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -36,7 +38,11 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.titleOut.text = [self.detailItem title];
+        self.authorOut.text = [self.detailItem author];
+        self.courseOut.text = [self.detailItem course];
+        self.isbnOut.text = [self.detailItem isbn];
+        self.priceOut.text = [NSString stringWithFormat:@"%i",[self.detailItem price]];
     }
 }
 
@@ -46,7 +52,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

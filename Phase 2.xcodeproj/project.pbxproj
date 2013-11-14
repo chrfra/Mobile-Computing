@@ -23,6 +23,9 @@
 		AAC4442E183104ED003251E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC4440A183104ED003251E8 /* UIKit.framework */; };
 		AAC44436183104ED003251E8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAC44434183104ED003251E8 /* InfoPlist.strings */; };
 		AAC44438183104ED003251E8 /* Phase_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC44437183104ED003251E8 /* Phase_2Tests.m */; };
+		AAC4444618310805003251E8 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC4444218310805003251E8 /* Book.m */; };
+		AAC4444718310805003251E8 /* SimpleBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC4444518310805003251E8 /* SimpleBookManager.m */; };
+		AAE1EB28183146B300F00C6C /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE1EB27183146B300F00C6C /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA0BE42F1834CCAF00F1EADC /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		AAC44403183104ED003251E8 /* Phase 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phase 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC44406183104ED003251E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAC44408183104ED003251E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,6 +62,12 @@
 		AAC44433183104ED003251E8 /* Phase 2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Phase 2Tests-Info.plist"; sourceTree = "<group>"; };
 		AAC44435183104ED003251E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAC44437183104ED003251E8 /* Phase_2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Phase_2Tests.m; sourceTree = "<group>"; };
+		AAC4444118310805003251E8 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		AAC4444218310805003251E8 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		AAC4444318310805003251E8 /* BookManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookManagerProtocol.h; sourceTree = "<group>"; };
+		AAC4444418310805003251E8 /* SimpleBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBookManager.h; sourceTree = "<group>"; };
+		AAC4444518310805003251E8 /* SimpleBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBookManager.m; sourceTree = "<group>"; };
+		AAE1EB27183146B300F00C6C /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +127,16 @@
 		AAC4440C183104ED003251E8 /* Phase 2 */ = {
 			isa = PBXGroup;
 			children = (
+				AAC4444118310805003251E8 /* Book.h */,
+				AAC4444218310805003251E8 /* Book.m */,
+				AAC4444318310805003251E8 /* BookManagerProtocol.h */,
+				AAC4444418310805003251E8 /* SimpleBookManager.h */,
+				AAC4444518310805003251E8 /* SimpleBookManager.m */,
 				AAC44415183104ED003251E8 /* AppDelegate.h */,
 				AAC44416183104ED003251E8 /* AppDelegate.m */,
 				AAC44418183104ED003251E8 /* Main_iPhone.storyboard */,
+				AA0BE42F1834CCAF00F1EADC /* EditViewController.h */,
+				AAE1EB27183146B300F00C6C /* EditViewController.m */,
 				AAC4441B183104ED003251E8 /* Main_iPad.storyboard */,
 				AAC4441E183104ED003251E8 /* MasterViewController.h */,
 				AAC4441F183104ED003251E8 /* MasterViewController.m */,
@@ -258,9 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC4444618310805003251E8 /* Book.m in Sources */,
 				AAC44417183104ED003251E8 /* AppDelegate.m in Sources */,
 				AAC44420183104ED003251E8 /* MasterViewController.m in Sources */,
+				AAE1EB28183146B300F00C6C /* EditViewController.m in Sources */,
 				AAC44413183104ED003251E8 /* main.m in Sources */,
+				AAC4444718310805003251E8 /* SimpleBookManager.m in Sources */,
 				AAC44423183104ED003251E8 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +500,7 @@
 				AAC4443D183104ED003251E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAC4443E183104ED003251E8 /* Build configuration list for PBXNativeTarget "Phase 2Tests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +509,7 @@
 				AAC44440183104ED003251E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
