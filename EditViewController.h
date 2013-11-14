@@ -10,4 +10,6 @@
 
 @interface EditViewController : UIViewController
 
+- (IBAction)doneBtn:(id)sender;
+
 @end
