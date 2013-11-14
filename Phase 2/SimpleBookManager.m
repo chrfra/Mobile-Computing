@@ -41,12 +41,7 @@
 
 
 - (Book *)bookAtIndex:(NSUInteger)index;{
-    
     return [_books objectAtIndex: index];
-     
-
-
-
 }
 
 - (Book *)createBook{
@@ -62,9 +57,6 @@
 - (void)removeBook:(Book *)b{
 }
 - (void)moveBookAtIndex:(NSUInteger)from toIndex:(NSUInteger)to{
-    
- 
-    
 }
 - (NSUInteger)minPrice{
     int minprice=1000000;

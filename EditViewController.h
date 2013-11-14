@@ -11,5 +11,11 @@
 @interface EditViewController : UIViewController
 
 - (IBAction)doneBtn:(id)sender;
+@property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *authorField;
+@property (weak, nonatomic) IBOutlet UITextField *courseField;
+@property (weak, nonatomic) IBOutlet UITextField *ISBNField;
+@property (weak, nonatomic) IBOutlet UITextField *priceField;
 
 @end

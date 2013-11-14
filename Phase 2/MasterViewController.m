@@ -32,12 +32,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     _manager = [[SimpleBookManager alloc] init];
-    
+    NSLog(@"ViewDidLoad");
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+    NSLog(@"ViewWillAppear");
 }
 
 
@@ -77,6 +81,7 @@
 //    NSDate *object = _objects[indexPath.row];
     Book *object = [_manager bookAtIndex:indexPath.row];
 //    cell.textLabel.text = [object description];
+    NSLog(@"SHOWING BOOK: %@", object.title);
     cell.textLabel.text = object.title;
     return cell;
 }
@@ -129,6 +134,15 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem: [_manager bookAtIndex:indexPath.row]];
+    }
+}
+
+// Save the details of the current book for displaying in the text boxes later.
+//cannot set the text for the text fields here since view is not loaded yet when we get here
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
     }
 }
 

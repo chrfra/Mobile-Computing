@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) SimpleBookManager *manager;
+@property (strong, nonatomic) id detailItem;
 
 @end

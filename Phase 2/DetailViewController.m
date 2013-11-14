@@ -77,4 +77,10 @@
     self.masterPopoverController = nil;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+        //Send the current book to edit view
+        [[segue destinationViewController] setDetailItem: self.detailItem];
+}
+
 @end
