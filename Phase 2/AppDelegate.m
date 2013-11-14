@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MasterViewController.h"
 
 @implementation AppDelegate
 
@@ -14,13 +15,24 @@
 {
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
     }
+    
+    //Disregard warning (Olof)
+    _controller = self.window.rootViewController;
+    
+    if(_controller !=nil){
+        NSLog(@"CONTROLLER EXISTS IN APPDELEGATE");
+    }
+    _manager = [[SimpleBookManager alloc] init];
+    //[controller setManager:_manager];
+    _controller.manager = _manager;
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

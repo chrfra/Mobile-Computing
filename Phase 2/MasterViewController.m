@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "SimpleBookManager.h"
 #import "Book.h"
+#import "AppDelegate.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -36,12 +37,14 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    _manager = [[SimpleBookManager alloc] init];
-    NSLog(@"ViewDidLoad");
-
+    if(_manager !=nil){
+        NSLog(@"ViewDidLoad");
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
+        if(_manager !=nil){
     NSLog(@"ViewWillAppear");
+        }
 }
 
 
