@@ -16,12 +16,10 @@
     self=[super init];
 
     if(self){
-                _author= [[NSString alloc] initWithString:a];
+        _author= [[NSString alloc] initWithString:a];
         _title= [[NSString alloc] initWithString:t];
         _price = p;
-
         _isbn= [[NSString alloc] initWithString:i];
-
         _course= [[NSString alloc] initWithString:c];
         
     }

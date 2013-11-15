@@ -37,15 +37,12 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    if(_manager !=nil){
-        NSLog(@"ViewDidLoad");
-    }
+    _manager = [[SimpleBookManager alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-        if(_manager !=nil){
-            NSLog(@"ViewWillAppear");
-        }
+    //Reload all cells in table (will call the tableView function for you)
+    [self.tableView reloadData];
 }
 
 
@@ -82,10 +79,10 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-//    NSDate *object = _objects[indexPath.row];
     Book *object = [_manager bookAtIndex:indexPath.row];
-//    cell.textLabel.text = [object description];
+    
     NSLog(@"SHOWING BOOK: %@", object.title);
+    
     cell.textLabel.text = object.title;
     return cell;
 }

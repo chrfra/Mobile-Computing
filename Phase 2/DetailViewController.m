@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "Book.h"
+#import "EditViewController.h"
 
 
 @interface DetailViewController ()
@@ -53,6 +54,8 @@
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
+    //Update the labels to show the new properties of the book
+    [self configureView];
     
 }
 - (void)didReceiveMemoryWarning
@@ -81,6 +84,14 @@
 {
         //Send the current book to edit view
         [[segue destinationViewController] setDetailItem: self.detailItem];
+}
+
+- (IBAction)unwindFromEdit:(UIStoryboardSegue*)sender{
+    /*
+    EditViewController *editController = (EditViewController *)sender.sourceViewController;
+    Book *b = (Book *)editController.detailItem;
+    NSLog(@"Title unwound is: %@", b.title);
+     */
 }
 
 @end

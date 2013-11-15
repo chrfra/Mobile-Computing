@@ -44,11 +44,10 @@
 //Interrupt changing view if no title has been entered, otherwise edit book
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ( _titleField.text.length>0 ){
-        /*
-        Book *b = (Book *)_detailItem;
-        b.title = @"HEJSAN";
-        NSLog(@"BOOK TITLE: %@",b.title);
-        */
+        //Read title from text field into detailItem
+        ((Book *)_detailItem).title = _titleField.text;
+        
+        //Allow seque to be performed
         return true;
     }
     else{return false;}

@@ -217,11 +217,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZ4-0B-OIi">
-                                <rect key="frame" x="128" y="302" width="154" height="30"/>
+                                <rect key="frame" x="128" y="302" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SEK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-ea-FKc">
+                                <rect key="frame" x="244" y="311" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -236,6 +243,7 @@
                                 </state>
                                 <connections>
                                     <action selector="doneBtn:" destination="4GP-eB-8hT" eventType="touchDown" id="lPi-Xp-kRq"/>
+                                    <segue destination="ci1-Xw-Uml" kind="unwind" unwindAction="unwindFromEdit:" id="xPd-BG-nwq"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -249,8 +257,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcE-7o-NvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ci1-Xw-Uml" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="71"/>
+            <point key="canvasLocation" x="1382" y="71"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
