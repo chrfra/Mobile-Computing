@@ -35,7 +35,7 @@
 
 - (NSUInteger)count {
     
-    return 5;
+    return _books.count;
 
 }
 
