@@ -11,6 +11,7 @@
 #import "SimpleBookManager.h"
 #import "Book.h"
 #import "AppDelegate.h"
+#import "NewBookViewController.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -34,8 +35,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    /*UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.navigationItem.rightBarButtonItem = addButton;*/
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     _manager = [[SimpleBookManager alloc] init];
 }
@@ -81,8 +82,6 @@
 
     Book *object = [_manager bookAtIndex:indexPath.row];
     
-    NSLog(@"SHOWING BOOK: %@", object.title);
-    
     cell.textLabel.text = object.title;
     return cell;
 }
@@ -96,8 +95,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[_objects removeObjectAtIndex:indexPath.row];
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -138,13 +137,38 @@
     }
 }
 
-// Save the details of the current book for displaying in the text boxes later.
-//cannot set the text for the text fields here since view is not loaded yet when we get here
-- (void)setDetailItem:(id)newDetailItem
+
+- (void)addBook:(Book *)b
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-    }
+    [_manager createBook:b.author
+                andTitle:b.title
+                andPrice:b.price
+                 andIsbn:b.isbn
+               andCourse:b.course];
+    
+    //(NSString *)a andTitle:(NSString *)t andPrice: (int) p andIsbn:(NSString *)i andCourse:(NSString *)c
 }
+
+
+- (IBAction)unwindFromCreateBook:(UIStoryboardSegue*)sender{
+    
+     //NewBookViewController *editController = (NewBookViewController *)sender.sourceViewController;
+     //Book *b = (Book *)editController.book;
+     //NSLog(@"Title unwound is: %@", b.title);
+
+    NSLog(@"UNWIND ADD BOOK");
+    
+    
+}
+
+//- (void)addItem:sender {
+    /*if (itemInputController == nil) {
+        itemInputController = [[ItemInputController alloc] init];
+    }
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:itemInputController];
+    [[self navigationController] presentModalViewController:navigationController animated:YES];*/
+//}
+
+
 
 @end

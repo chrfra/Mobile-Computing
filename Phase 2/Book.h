@@ -12,7 +12,7 @@
 
 @property NSString *author;
 @property NSString *title;
-@property int price;
+@property NSInteger price;
 @property NSString *isbn;
 @property NSString *course;
 

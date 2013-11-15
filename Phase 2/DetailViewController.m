@@ -92,6 +92,7 @@
     Book *b = (Book *)editController.detailItem;
     NSLog(@"Title unwound is: %@", b.title);
      */
+    
 }
 
 @end

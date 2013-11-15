@@ -13,7 +13,8 @@
 
     - (NSUInteger)count;
     - (Book *)bookAtIndex:(NSUInteger)index;
-    - (Book *)createBook;
+    - (Book *)createBook:(NSString *)a andTitle:(NSString *)t andPrice: (int) p andIsbn:(NSString *)i andCourse:(NSString *)c;
+    -(void)addBook:(Book *)b;
     - (NSArray *)allBooks;
     - (void)removeBook:(Book *)b;
     - (void)moveBookAtIndex:(NSUInteger)from toIndex:(NSUInteger)to;

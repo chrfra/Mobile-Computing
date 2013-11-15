@@ -44,10 +44,15 @@
 //Interrupt changing view if no title has been entered, otherwise edit book
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ( _titleField.text.length>0 ){
-        //Read title from text field into detailItem
-        ((Book *)_detailItem).title = _titleField.text;
+        Book *book =((Book *)_detailItem);
+        //Read properties of book from text fields into detailItem (the book in the book manager
+        book.title = _titleField.text;
+        book.author = _authorField.text;
+        book.course = _courseField.text;
+        book.isbn =  _ISBNField.text;
+        book.price = [_priceField.text integerValue];
         
-        //Allow seque to be performed
+        //Allow segue to be performed
         return true;
     }
     else{return false;}
@@ -84,37 +89,5 @@
     //Send the current book to edit view
     [[segue destinationViewController] setDetailItem: self.detailItem];
 }
-
-/*
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
- 
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem: [_manager bookAtIndex:indexPath.row]];
-    }
-
-}
-*/
-/*
-- (void)perform
-{
-    // Add your own animation code here.
-    
-    [[self sourceViewController] presentModalViewController:[self destinationViewController] animated:NO];
-}
-
-
-MasterViewController masterView = [MasterViewController alloc]
-
-PushViewController *oView = [[PushViewController alloc]         initWithNibName:@”PushViewController” bundle:nil];
-
-oView.title = @”The Other View”;
-[self.navigationController pushViewController:oView animated:YES];
-[oView release];
-*/
-
 
 @end

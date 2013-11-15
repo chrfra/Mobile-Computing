@@ -44,12 +44,19 @@
     return [_books objectAtIndex: index];
 }
 
-- (Book *)createBook{
-    Book *book7 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"My book" andPrice:15 andIsbn: @"abcd" andCourse: @"Mobile computing"];
+- (Book *)createBook:(NSString *)a andTitle:(NSString *)t andPrice: (int) p andIsbn:(NSString *)i andCourse:(NSString *)c{
+    
+    Book *book7 = [[Book alloc] initWithAuthor:a andTitle:t andPrice:p andIsbn: i andCourse: c];
+    
     [_books addObject:book7];
     
     return book7;
 }
+/*
+- (void)createBookFromBook:(Book *)b{
+    [_books addObject:b];
+}
+*/
 - (NSArray *)allBooks{
     return _books;
     

@@ -23,14 +23,7 @@
     
     //Disregard warning (Olof)
     _controller = self.window.rootViewController;
-    
-    if(_controller !=nil){
-        NSLog(@"CONTROLLER EXISTS IN APPDELEGATE");
-    }
 
-    
-    //[_controller setManager:_manager];
-    //_controller.manager = _manager;
     return YES;
 }
 
