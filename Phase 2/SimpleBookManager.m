@@ -49,8 +49,12 @@
     
 }
 - (void)removeBook:(Book *)b{
+    [_books removeObject:b];
 }
 - (void)moveBookAtIndex:(NSUInteger)from toIndex:(NSUInteger)to{
+    /*Book a = [self bookAtIndex:from];
+    [_books objectAtIndex:from] = [_books objectAtIndex:to];
+     */
 }
 - (NSUInteger)minPrice{
     int minprice=1000000;
@@ -101,12 +105,32 @@
     return totalCost;
 }
 
+/*Persisting*/
+
+#define kFileName @"Books.data"
+
 - (void)saveChanges{
-    
+     [NSKeyedArchiver archiveRootObject:self.books toFile:[self bookStoreDataPath]];
     
 }
 
-//Add five sample books
+- (NSString *)pathInDocumentDirectory:(NSString *)fileName {
+    
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    
+    return [documentDirectory stringByAppendingPathComponent:fileName];
+    
+}
+
+- (NSString *)bookStoreDataPath {
+    
+    return [self pathInDocumentDirectory:kFileName];
+    
+}
+
+//Add five sample books to index 0-4 in array
 -(void)addSampleBooks{
     Book *book1 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Harry Potter" andPrice:15 andIsbn: @"abcd" andCourse: @"CIU196"];
     

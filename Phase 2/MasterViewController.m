@@ -92,11 +92,14 @@
     return YES;
 }
 
+//Delete a book
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //[_objects removeObjectAtIndex:indexPath.row];
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //Remove book from book manager
+        [_manager removeBook:[_manager bookAtIndex:indexPath.row]];
+        //Update the tableview with animation on the removed cell
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -119,7 +122,6 @@
     return YES;
 }
 */
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -128,37 +130,23 @@
     }
 }
 
+//Pass the book clicked on to the detailviewcontroller for displaying the details of that book
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem: [_manager bookAtIndex:indexPath.row]];
     }
 }
 
-
+//Add book to the book manager
 - (void)addBook:(Book *)b
 {
-    /*
-    [_manager createBook:b.author
-                andTitle:b.title
-                andPrice:b.price
-                 andIsbn:b.isbn
-               andCourse:b.course];*/
     [_manager addBook:b];
-    //(NSString *)a andTitle:(NSString *)t andPrice: (int) p andIsbn:(NSString *)i andCourse:(NSString *)c
 }
 
 
 - (IBAction)unwindFromCreateBook:(UIStoryboardSegue*)sender{
-    
-     //NewBookViewController *editController = (NewBookViewController *)sender.sourceViewController;
-     //Book *b = (Book *)editController.book;
-     //NSLog(@"Title unwound is: %@", b.title);
-
-    NSLog(@"UNWIND ADD BOOK");
-    
     
 }
 

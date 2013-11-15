@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Book : NSObject
+@interface Book : NSObject <NSCoding, NSCopying>{
+    //Variables to be persisted using NSCoding
+    //NSString *author;
+    NSString *title;
+    /*NSInteger price;
+    NSString *isbn;
+    NSString *course;*/
+}
 
 @property NSString *author;
-@property NSString *title;
+@property (nonatomic, copy) NSString *title;
 @property NSInteger price;
 @property NSString *isbn;
 @property NSString *course;

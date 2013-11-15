@@ -27,4 +27,52 @@
     return self;
 };
 
+
+//pragma mark just for labeling this section of code in xcode
+#pragma mark NSCoding and NSCopying
+
+#define kTitle @"title"
+/*#define kAge @"age"
+#define kAddress @"address"
+*/
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super init];
+    
+    if (self) {
+        
+        /*
+         
+         Note - same as [self setName:[aDecoder decodeObjectForKey:kName]]
+         
+         */
+        self.title = [aDecoder decodeObjectForKey:kTitle];
+        //self.age = [aDecoder decodeIntForKey:kAge];
+        //self.address = [aDecoder decodeObjectForKey:kAddress];
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    
+    [aCoder encodeObject:self.title forKey:kTitle];
+    /*[aCoder encodeInt:self.age forKey:kAge];
+    [aCoder encodeObject:self.address forKey:kAddress];
+    */
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    
+    Book *copy = [[Book allocWithZone:zone] init];
+    
+    copy.title = [self.title copyWithZone:zone];
+    /*copy.age = self.age;
+    copy.address = [self.address copyWithZone:zone];
+    */
+    return copy;
+}
+
+
+
 @end
