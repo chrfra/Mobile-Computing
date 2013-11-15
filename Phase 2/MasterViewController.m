@@ -41,9 +41,10 @@
         NSLog(@"ViewDidLoad");
     }
 }
+
 -(void)viewWillAppear:(BOOL)animated{
         if(_manager !=nil){
-    NSLog(@"ViewWillAppear");
+            NSLog(@"ViewWillAppear");
         }
 }
 

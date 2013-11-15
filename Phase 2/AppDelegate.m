@@ -28,8 +28,9 @@
         NSLog(@"CONTROLLER EXISTS IN APPDELEGATE");
     }
     _manager = [[SimpleBookManager alloc] init];
-    //[controller setManager:_manager];
-    _controller.manager = _manager;
+    
+    //[_controller setManager:_manager];
+    //_controller.manager = _manager;
     return YES;
 }
 
