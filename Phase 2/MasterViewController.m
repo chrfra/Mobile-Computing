@@ -140,12 +140,13 @@
 
 - (void)addBook:(Book *)b
 {
+    /*
     [_manager createBook:b.author
                 andTitle:b.title
                 andPrice:b.price
                  andIsbn:b.isbn
-               andCourse:b.course];
-    
+               andCourse:b.course];*/
+    [_manager addBook:b];
     //(NSString *)a andTitle:(NSString *)t andPrice: (int) p andIsbn:(NSString *)i andCourse:(NSString *)c
 }
 

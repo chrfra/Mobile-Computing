@@ -16,29 +16,16 @@
 
     if(self){
         
-        Book *book1 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Harry Potter" andPrice:15 andIsbn: @"abcd" andCourse: @"CIU196"];
-
-        Book *book2 = [[Book alloc] initWithAuthor: @"Stephen King" andTitle: @"Under the Dome" andPrice:315 andIsbn: @"abcd" andCourse: @"CIU196"];
-        
-        Book *book3 = [[Book alloc] initWithAuthor: @"J. R. R: Tolkien" andTitle: @"Lord of the rings" andPrice:45 andIsbn: @"abcd" andCourse: @"CIU196"];
-        
-        Book *book4 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Prisoner of Azkaban" andPrice:25 andIsbn: @"abcd" andCourse: @"CIU196"];
-        
-        Book *book5 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Philosopher's stone" andPrice:5 andIsbn: @"abcd" andCourse: @"CIU196"];
-
-        self.books = [NSMutableArray arrayWithObjects: book1, book2, book3, book4, book5, nil];
+        self.books = [NSMutableArray array];
+        [self addSampleBooks];
 
     }
     return self;
-    
 }
 
 - (NSUInteger)count {
-    
     return _books.count;
-
 }
-
 
 - (Book *)bookAtIndex:(NSUInteger)index;{
     return [_books objectAtIndex: index];
@@ -52,11 +39,11 @@
     
     return book7;
 }
-/*
-- (void)createBookFromBook:(Book *)b{
+
+- (void)addBook:(Book *)b{
     [_books addObject:b];
 }
-*/
+
 - (NSArray *)allBooks{
     return _books;
     
@@ -119,7 +106,24 @@
     
 }
 
-
+//Add five sample books
+-(void)addSampleBooks{
+    Book *book1 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Harry Potter" andPrice:15 andIsbn: @"abcd" andCourse: @"CIU196"];
+    
+    Book *book2 = [[Book alloc] initWithAuthor: @"Stephen King" andTitle: @"Under the Dome" andPrice:315 andIsbn: @"abcd" andCourse: @"CIU196"];
+    
+    Book *book3 = [[Book alloc] initWithAuthor: @"J. R. R: Tolkien" andTitle: @"Lord of the rings" andPrice:45 andIsbn: @"abcd" andCourse: @"CIU196"];
+    
+    Book *book4 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Prisoner of Azkaban" andPrice:25 andIsbn: @"abcd" andCourse: @"CIU196"];
+    
+    Book *book5 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Philosopher's stone" andPrice:5 andIsbn: @"abcd" andCourse: @"CIU196"];
+    [_books addObject:book1];
+    [_books addObject:book2];
+    [_books addObject:book3];
+    [_books addObject:book4];
+    [_books addObject:book5];
+    
+}
 
 @end
 
