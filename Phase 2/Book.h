@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Book : NSObject <NSCoding, NSCopying>{
+@interface Book : NSObject <NSCoding>{
     //Variables to be persisted using NSCoding
     //NSString *author;
     NSString *title;

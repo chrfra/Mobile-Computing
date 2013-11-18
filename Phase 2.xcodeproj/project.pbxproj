@@ -27,6 +27,7 @@
 		AAC44438183104ED003251E8 /* Phase_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC44437183104ED003251E8 /* Phase_2Tests.m */; };
 		AAC4444618310805003251E8 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC4444218310805003251E8 /* Book.m */; };
 		AAC4444718310805003251E8 /* SimpleBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC4444518310805003251E8 /* SimpleBookManager.m */; };
+		AAE34C33183A430100074A3F /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAE34C32183A430100074A3F /* Books.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		AAC4444318310805003251E8 /* BookManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookManagerProtocol.h; sourceTree = "<group>"; };
 		AAC4444418310805003251E8 /* SimpleBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleBookManager.h; sourceTree = "<group>"; };
 		AAC4444518310805003251E8 /* SimpleBookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBookManager.m; sourceTree = "<group>"; };
+		AAE34C32183A430100074A3F /* Books.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Books.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		AAC4440C183104ED003251E8 /* Phase 2 */ = {
 			isa = PBXGroup;
 			children = (
+				AAE34C32183A430100074A3F /* Books.plist */,
 				AAC4444118310805003251E8 /* Book.h */,
 				AAC4444218310805003251E8 /* Book.m */,
 				AAC4444318310805003251E8 /* BookManagerProtocol.h */,
@@ -262,6 +265,7 @@
 				AAC44425183104ED003251E8 /* Images.xcassets in Resources */,
 				AAC4441A183104ED003251E8 /* Main_iPhone.storyboard in Resources */,
 				AAC44411183104ED003251E8 /* InfoPlist.strings in Resources */,
+				AAE34C33183A430100074A3F /* Books.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -107,11 +107,12 @@
 
 /*Persisting*/
 
-#define kFileName @"Books.data"
+#define kFileName @"Books.plist"
 
 - (void)saveChanges{
-     [NSKeyedArchiver archiveRootObject:self.books toFile:[self bookStoreDataPath]];
-    
+    if([NSKeyedArchiver archiveRootObject:self.books toFile:[self bookStoreDataPath]]){
+        NSLog(@"Saved changes to %@",[self bookStoreDataPath]);
+    }
 }
 
 - (NSString *)pathInDocumentDirectory:(NSString *)fileName {
@@ -125,8 +126,8 @@
 }
 
 - (NSString *)bookStoreDataPath {
-    
-    return [self pathInDocumentDirectory:kFileName];
+    //return [self pathInDocumentDirectory:kFileName];
+    return [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
     
 }
 

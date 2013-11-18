@@ -147,7 +147,7 @@
 
 
 - (IBAction)unwindFromCreateBook:(UIStoryboardSegue*)sender{
-    
+    [_manager saveChanges];
 }
 
 //- (void)addItem:sender {

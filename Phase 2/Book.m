@@ -54,9 +54,9 @@
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    
+- (void)encodeWithCoder:(NSCoder *)aCoder {    
     [aCoder encodeObject:self.title forKey:kTitle];
+    NSLog(@"Saving title %@",self.title);
     /*[aCoder encodeInt:self.age forKey:kAge];
     [aCoder encodeObject:self.address forKey:kAddress];
     */
