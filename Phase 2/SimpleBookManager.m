@@ -11,6 +11,22 @@
 
 @implementation SimpleBookManager
 
+static SimpleBookManager *sharedsimplebookmanager = nil;
+
+
++ (void)initialize {
+    NSAssert(self == [SimpleBookManager class],
+             @"PersonStore is not designed to be subclassed.");
+    sharedsimplebookmanager = [[SimpleBookManager alloc] init];
+}
+
++ (SimpleBookManager *)sharedSimpleBookManager
+{
+    return sharedsimplebookmanager;
+}
+
+
+
 - (id)init{
     self=[super init];
 

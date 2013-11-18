@@ -38,7 +38,8 @@
     /*UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;*/
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    _manager = [[SimpleBookManager alloc] init];
+    _manager = [SimpleBookManager sharedSimpleBookManager];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

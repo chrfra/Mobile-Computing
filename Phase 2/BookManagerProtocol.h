@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Book;
-@protocol BookManagerProtocol <NSObject>
 
+@class Book;
+
+//forward declaration as it is not possible to import header files to other header files
+
+@class SimpleBookManager;
+
+
+
+@protocol BookManagerProtocol <NSObject>
 
     - (NSUInteger)count;
     - (Book *)bookAtIndex:(NSUInteger)index;
@@ -21,6 +28,9 @@
     - (NSUInteger)minPrice; - (NSUInteger)maxPrice; - (CGFloat)meanPrice;
     - (NSUInteger)totalCost;
     - (void)saveChanges;
+    + (SimpleBookManager *)sharedSimpleBookManager;
+
+
 
 
 @end
