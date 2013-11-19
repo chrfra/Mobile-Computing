@@ -35,20 +35,6 @@
 /*#define kAge @"age"
 #define kAddress @"address"
 */
-
-#define kTitleKey       @"title"
-
-- (void) encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:_title forKey:kTitleKey];
-//    [encoder encodeFloat:_rating forKey:kRatingKey];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-    NSString *title = [decoder decodeObjectForKey:kTitleKey];
-//    float rating = [decoder decodeFloatForKey:kRatingKey];
-    return [self initWithTitle:title rating:rating];
-}
-
 - (id)initWithCoder:(NSCoder *)aDecoder {
     
     self = [super init];

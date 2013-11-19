@@ -31,10 +31,20 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
     self=[super init];
 
     if(self){
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        //The path to the file with the saved books
+        documentsDirectory = [documentsDirectory stringByAppendingPathComponent:@"SavedBooks"];
         
-        self.books = [NSMutableArray array];
-        [self addSampleBooks];
-        [self saveChanges];
+        self.books = [NSKeyedUnarchiver unarchiveObjectWithFile:documentsDirectory];
+        if(self.books != nil){
+            NSLog(@"SAVED to dir sucessful: %@", documentsDirectory);
+        }
+        else{
+            self.books = [NSMutableArray array];
+            [self addSampleBooks];
+        }
+        //[self saveChanges];
 
     }
     return self;
@@ -124,7 +134,7 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 
 /*Persisting*/
 
-#define kFileName @"Books.plist"
+//#define kFileName @"Books.plist"
 
 - (void)saveChanges{
    /*
