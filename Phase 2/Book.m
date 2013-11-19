@@ -56,7 +56,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {    
     [aCoder encodeObject:self.title forKey:kTitle];
-    NSLog(@"Saving title %@",self.title);
+    NSLog(@"Book encoder is saving title %@",self.title);
     /*[aCoder encodeInt:self.age forKey:kAge];
     [aCoder encodeObject:self.address forKey:kAddress];
     */

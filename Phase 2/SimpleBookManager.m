@@ -34,6 +34,7 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
         
         self.books = [NSMutableArray array];
         [self addSampleBooks];
+        [self saveChanges];
 
     }
     return self;
@@ -126,11 +127,24 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 #define kFileName @"Books.plist"
 
 - (void)saveChanges{
+   /*
     if([NSKeyedArchiver archiveRootObject:self.books toFile:[self bookStoreDataPath]]){
         NSLog(@"Saved changes to %@",[self bookStoreDataPath]);
     }
+    */
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    //The path to the file with the saved books
+    documentsDirectory = [documentsDirectory stringByAppendingPathComponent:@"SavedBooks"];
+    
+    if([NSKeyedArchiver archiveRootObject:self.books toFile:documentsDirectory]){
+        NSLog(@"SAVED to dir: %@", documentsDirectory);
+    }
+    
+    
 }
-
+/*
 - (NSString *)pathInDocumentDirectory:(NSString *)fileName {
     
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -146,7 +160,7 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
     return [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
     
 }
-
+*/
 //Add five sample books to index 0-4 in array
 -(void)addSampleBooks{
     Book *book1 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Harry Potter" andPrice:15 andIsbn: @"abcd" andCourse: @"CIU196"];
