@@ -10,6 +10,11 @@
 
 @interface Book : NSObject <NSCoding>
 
+// Inside @interface
+@property NSString *_docPath;
+
+
+
 @property NSString *author;
 @property (nonatomic, copy) NSString *title;
 @property NSInteger price;
@@ -19,5 +24,11 @@
 - (id)initWithAuthor:(NSString *)a andTitle:(NSString *)t andPrice:(int)p andIsbn:(NSString *)i andCourse:(NSString *)c;
 
 
+// After @interface
+@property (copy) NSString *docPath;
+- (id)init;
+- (id)initWithDocPath:(NSString *)docPath;
+- (void)saveData;
+- (void)deleteDoc;
 
 @end
