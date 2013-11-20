@@ -36,17 +36,15 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
         //The path to the file with the saved books
         documentsDirectory = [documentsDirectory stringByAppendingPathComponent:@"SavedBooks"];
         
+        //Try to load saved books from disk
         self.books = [NSKeyedUnarchiver unarchiveObjectWithFile:documentsDirectory];
-        if(self.books != nil){
-            NSLog(@"SAVED to dir sucessful: %@", documentsDirectory);
-        }
-        else{
+        //Create and populate new list of books of it does not exist
+        if(self.books == nil){
             self.books = [NSMutableArray array];
             [self addSampleBooks];
         }
-        //[self saveChanges];
-
     }
+    //[self saveChanges];
     return self;
 }
 
@@ -86,7 +84,6 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 - (NSUInteger)minPrice{
     int minprice=1000000;
     for(Book *book in _books){
-        
         if(book.price < minprice ){
         minprice = book.price;
         }
@@ -133,44 +130,20 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 }
 
 /*Persisting*/
-
-//#define kFileName @"Books.plist"
-
 - (void)saveChanges{
-   /*
-    if([NSKeyedArchiver archiveRootObject:self.books toFile:[self bookStoreDataPath]]){
-        NSLog(@"Saved changes to %@",[self bookStoreDataPath]);
-    }
-    */
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     //The path to the file with the saved books
     documentsDirectory = [documentsDirectory stringByAppendingPathComponent:@"SavedBooks"];
     
-    if([NSKeyedArchiver archiveRootObject:self.books toFile:documentsDirectory]){
-        NSLog(@"SAVED to dir: %@", documentsDirectory);
+    if(![NSKeyedArchiver archiveRootObject:self.books toFile:documentsDirectory]){
+        NSLog(@"Failed to save books!");
     }
     
     
 }
-/*
-- (NSString *)pathInDocumentDirectory:(NSString *)fileName {
-    
-    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    
-    return [documentDirectory stringByAppendingPathComponent:fileName];
-    
-}
 
-- (NSString *)bookStoreDataPath {
-    //return [self pathInDocumentDirectory:kFileName];
-    return [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
-    
-}
-*/
 //Add five sample books to index 0-4 in array
 -(void)addSampleBooks{
     Book *book1 = [[Book alloc] initWithAuthor: @"J. K. Rowling" andTitle: @"Harry Potter" andPrice:15 andIsbn: @"abcd" andCourse: @"CIU196"];

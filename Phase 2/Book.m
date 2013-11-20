@@ -28,51 +28,37 @@
 };
 
 
-//pragma mark just for labeling this section of code in xcode
+//Pragma mark just for labeling this section of code in xcode
 #pragma mark NSCoding and NSCopying
 
 #define kTitle @"title"
-/*#define kAge @"age"
-#define kAddress @"address"
-*/
+#define kAuthor @"author"
+#define kPrice @"price"
+#define kIsbn @"isbn"
+#define kCourse @"course"
+
+//Init book from saved file
 - (id)initWithCoder:(NSCoder *)aDecoder {
     
     self = [super init];
     
     if (self) {
-        
-        /*
-         
-         Note - same as [self setName:[aDecoder decodeObjectForKey:kName]]
-         
-         */
         self.title = [aDecoder decodeObjectForKey:kTitle];
-        //self.age = [aDecoder decodeIntForKey:kAge];
-        //self.address = [aDecoder decodeObjectForKey:kAddress];
-        
+        self.author = [aDecoder decodeObjectForKey:kAuthor];
+        self.price = [aDecoder decodeIntForKey:kPrice];
+        self.isbn = [aDecoder decodeObjectForKey:kIsbn];
+        self.course = [aDecoder decodeObjectForKey:kCourse];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {    
     [aCoder encodeObject:self.title forKey:kTitle];
-    NSLog(@"Book encoder is saving title %@",self.title);
-    /*[aCoder encodeInt:self.age forKey:kAge];
-    [aCoder encodeObject:self.address forKey:kAddress];
-    */
+    [aCoder encodeObject:self.author forKey:kAuthor];
+    [aCoder encodeInteger:self.price forKey:kPrice];
+    [aCoder encodeObject:self.isbn forKey:kIsbn];
+    [aCoder encodeObject:self.course forKey:kCourse];
 }
-
-- (id)copyWithZone:(NSZone *)zone {
-    
-    Book *copy = [[Book allocWithZone:zone] init];
-    
-    copy.title = [self.title copyWithZone:zone];
-    /*copy.age = self.age;
-    copy.address = [self.address copyWithZone:zone];
-    */
-    return copy;
-}
-
 
 
 @end

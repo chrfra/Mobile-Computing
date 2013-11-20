@@ -47,6 +47,20 @@
     [self.tableView reloadData];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    id objectToMove = [_objects objectAtIndex:fromIndexPath.row];
+    [_objects removeObjectAtIndex:fromIndexPath.row];
+    [_objects insertObject:objectToMove atIndex:toIndexPath.row];
+    [tableView reloadData];
+    //[self saveObjects];  // A method of your own to make new positions persistent
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -106,23 +120,6 @@
     }
 }
 
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -146,19 +143,8 @@
     [_manager addBook:b];
 }
 
-
+//Save book to book manager when returning from having created a new book
 - (IBAction)unwindFromCreateBook:(UIStoryboardSegue*)sender{
     [_manager saveChanges];
 }
-
-//- (void)addItem:sender {
-    /*if (itemInputController == nil) {
-        itemInputController = [[ItemInputController alloc] init];
-    }
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:itemInputController];
-    [[self navigationController] presentModalViewController:navigationController animated:YES];*/
-//}
-
-
-
 @end

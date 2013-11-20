@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA0BE4321834D15100F1EADC /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0BE4311834D15100F1EADC /* EditViewController.m */; };
 		AA1AC3AB183672C90054EC93 /* NewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AC3AA183672C90054EC93 /* NewBookViewController.m */; };
+		AA8965C7183BA76000A85945 /* SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8965C6183BA76000A85945 /* SummaryViewController.m */; };
 		AAC44407183104ED003251E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC44406183104ED003251E8 /* Foundation.framework */; };
 		AAC44409183104ED003251E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC44408183104ED003251E8 /* CoreGraphics.framework */; };
 		AAC4440B183104ED003251E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC4440A183104ED003251E8 /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 		AA0BE4311834D15100F1EADC /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditViewController.m; path = ../EditViewController.m; sourceTree = "<group>"; };
 		AA1AC3A9183672C90054EC93 /* NewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBookViewController.h; sourceTree = "<group>"; };
 		AA1AC3AA183672C90054EC93 /* NewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBookViewController.m; sourceTree = "<group>"; };
+		AA8965C5183BA76000A85945 /* SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryViewController.h; sourceTree = "<group>"; };
+		AA8965C6183BA76000A85945 /* SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryViewController.m; sourceTree = "<group>"; };
 		AAC44403183104ED003251E8 /* Phase 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phase 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC44406183104ED003251E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAC44408183104ED003251E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,8 @@
 		AAC4440C183104ED003251E8 /* Phase 2 */ = {
 			isa = PBXGroup;
 			children = (
+				AA8965C5183BA76000A85945 /* SummaryViewController.h */,
+				AA8965C6183BA76000A85945 /* SummaryViewController.m */,
 				AAE34C32183A430100074A3F /* Books.plist */,
 				AAC4444118310805003251E8 /* Book.h */,
 				AAC4444218310805003251E8 /* Book.m */,
@@ -286,6 +291,7 @@
 			files = (
 				AAC4444618310805003251E8 /* Book.m in Sources */,
 				AAC44417183104ED003251E8 /* AppDelegate.m in Sources */,
+				AA8965C7183BA76000A85945 /* SummaryViewController.m in Sources */,
 				AAC44420183104ED003251E8 /* MasterViewController.m in Sources */,
 				AA0BE4321834D15100F1EADC /* EditViewController.m in Sources */,
 				AAC44413183104ED003251E8 /* main.m in Sources */,

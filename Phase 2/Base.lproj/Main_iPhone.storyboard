@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-509" y="-68"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Collection-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
                 <navigationController id="rS3-R9-Ivy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TG8-DS-6Dy"/>
+                    <tabBarItem key="tabBarItem" title="Collection" id="TG8-DS-6Dy"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-49" y="-422"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--Summary View Controller - Summary-->
         <scene sceneID="Fe2-RT-z1r">
             <objects>
-                <viewController id="aHK-wm-W25" sceneMemberID="viewController">
+                <viewController id="aHK-wm-W25" customClass="SummaryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iHk-D4-lIa"/>
                         <viewControllerLayoutGuide type="bottom" id="Taz-fV-gE6"/>
@@ -54,8 +54,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-hH-MVe">
-                                <rect key="frame" x="197" y="124" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-hH-MVe">
+                                <rect key="frame" x="200" y="124" width="67" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -100,14 +100,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gox-KG-JVG">
-                                <rect key="frame" x="200" y="153" width="39" height="21"/>
+                                <rect key="frame" x="200" y="153" width="67" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAp-XV-Ulp">
-                                <rect key="frame" x="200" y="182" width="39" height="21"/>
+                                <rect key="frame" x="200" y="182" width="67" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -123,7 +123,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="rdu-I2-fCr"/>
+                    <tabBarItem key="tabBarItem" title="Summary" id="rdu-I2-fCr"/>
+                    <connections>
+                        <outlet property="average" destination="u5b-oe-I5r" id="jGJ-wq-jtC"/>
+                        <outlet property="bookAmount" destination="5cL-5m-KEB" id="8B3-Cv-6bT"/>
+                        <outlet property="expensive" destination="gox-KG-JVG" id="H0Z-z9-Mly"/>
+                        <outlet property="leastExpensive" destination="FAp-XV-Ulp" id="XiY-DR-9ui"/>
+                        <outlet property="totalCost" destination="lhh-hH-MVe" id="OrC-Z5-xBA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qht-lo-5kM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
