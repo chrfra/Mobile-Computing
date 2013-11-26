@@ -45,7 +45,12 @@
         //Allow seque to be performed
         return true;
     }
-    else{return true;}
+    else{
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Book must have a title." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return false;}
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

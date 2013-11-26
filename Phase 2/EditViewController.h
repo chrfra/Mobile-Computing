@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditViewController : UIViewController
+@interface EditViewController : UIViewController <UIAlertViewDelegate>
 
 - (IBAction)doneBtn:(id)sender;
 @property (strong, nonatomic) id detailItem;
