@@ -270,7 +270,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Fhp-CU-Xly">
                             <connections>
-                                <segue destination="4GP-eB-8hT" kind="push" id="3nl-rk-zlC"/>
+                                <segue destination="xh4-Ch-32t" kind="modal" id="P2d-MA-2Vv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -285,6 +285,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="890" y="64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zka-DY-qcB">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="xh4-Ch-32t" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p0J-Z6-kEI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4GP-eB-8hT" kind="relationship" relationship="rootViewController" id="7AF-0l-6cl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6y-MF-f7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="8"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="0oW-8B-Otl">
@@ -400,7 +415,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcE-7o-NvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ci1-Xw-Uml" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="-33"/>
+            <point key="canvasLocation" x="1758" y="8"/>
         </scene>
         <!--New Book View Controller - Title-->
         <scene sceneID="0d2-IV-ois">
@@ -516,7 +531,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGX-5e-tEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dla-bK-aBd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="-679"/>
+            <point key="canvasLocation" x="1164" y="-729"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
