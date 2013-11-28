@@ -10,7 +10,6 @@
 
 @implementation Book
 
-
 - (id)initWithAuthor:(NSString *)a andTitle:(NSString *)t andPrice: (int) p andIsbn:(NSString *)i andCourse:(NSString *)c {
    
     self=[super init];
@@ -21,9 +20,7 @@
         _price = p;
         _isbn= [[NSString alloc] initWithString:i];
         _course= [[NSString alloc] initWithString:c];
-        
     }
-    
     return self;
 };
 
@@ -60,5 +57,10 @@
     [aCoder encodeObject:self.course forKey:kCourse];
 }
 
+-(id) copyWithZone: (NSZone *) zone
+{
+    Book *bookCopy = [[Book allocWithZone: zone] initWithAuthor:self.author andTitle:self.title andPrice:self.price andIsbn:self.isbn andCourse:self.isbn];
+    return bookCopy;
+}
 
 @end

@@ -25,8 +25,6 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
     return sharedsimplebookmanager;
 }
 
-
-
 - (id)init{
     self=[super init];
 
@@ -39,12 +37,12 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
         //Try to load saved books from disk
         self.books = [NSKeyedUnarchiver unarchiveObjectWithFile:documentsDirectory];
         //Create and populate new list of books of it does not exist
-        if(self.books == nil){
+        //if(self.books == nil){
             self.books = [NSMutableArray array];
             [self addSampleBooks];
-        }
+        //}
     }
-    //[self saveChanges];
+    [self saveChanges];
     return self;
 }
 
@@ -76,10 +74,33 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 - (void)removeBook:(Book *)b{
     [_books removeObject:b];
 }
+
 - (void)moveBookAtIndex:(NSUInteger)from toIndex:(NSUInteger)to{
-    /*Book a = [self bookAtIndex:from];
-    [_books objectAtIndex:from] = [_books objectAtIndex:to];
-     */
+    Book *book1 = [[self bookAtIndex:from] copy];
+    Book *book2 = [[self bookAtIndex:to] copy];
+    /*
+    [_books removeObjectAtIndex:to];
+    [_books removeObjectAtIndex:from];
+    */
+    
+    //Store the two indexes at which to swap books
+    /*
+    NSMutableIndexSet *mutableIndexSet = [[NSMutableIndexSet alloc] init];
+    [mutableIndexSet addIndex:from];
+    [mutableIndexSet addIndex:to];
+    NSArray *bookArray = [NSArray arrayWithObjects:book1, book2, nil];
+    */
+    /*[_books replaceObjectsAtIndexes:mutableIndexSet withObjects:bookArray];*/
+    
+    [_books insertObject:[self bookAtIndex:from] atIndex:(to+1)];
+    [_books removeObjectAtIndex:from];
+    //[_books insertObject:book2 atIndex:from];
+     
+    
+    
+    
+    [self saveChanges];
+    //[self saveObjects];  // A method of your own to make new positions persistent
 }
 - (NSUInteger)minPrice{
     int minprice=1000000;
@@ -96,13 +117,10 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 - (NSUInteger)maxPrice{
     int maxprice=0;
     for(Book *book in _books){
-        
         if(book.price > maxprice ){
             maxprice = book.price;
         }
-        
     }
-    
     return maxprice;
 }
 

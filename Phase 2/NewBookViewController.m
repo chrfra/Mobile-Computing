@@ -45,7 +45,7 @@
         //Allow seque to be performed
         return true;
     }
-    else{return true;}
+    else{return false;}
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

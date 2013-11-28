@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Book : NSObject <NSCoding>
+@interface Book : NSObject <NSCoding, NSCopying>
 
 @property NSString *author;
 @property (nonatomic, copy) NSString *title;
@@ -17,6 +17,7 @@
 @property NSString *course;
 
 - (id)initWithAuthor:(NSString *)a andTitle:(NSString *)t andPrice:(int)p andIsbn:(NSString *)i andCourse:(NSString *)c;
+-(id) copyWithZone: (NSZone *) zone;
 
 
 

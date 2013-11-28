@@ -52,12 +52,10 @@
     return YES;
 }
 
-
+//Perform reordering of elements in data source
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
-    id objectToMove = [_objects objectAtIndex:fromIndexPath.row];
-    [_objects removeObjectAtIndex:fromIndexPath.row];
-    [_objects insertObject:objectToMove atIndex:toIndexPath.row];
+    [_manager moveBookAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
     [tableView reloadData];
     //[self saveObjects];  // A method of your own to make new positions persistent
 }
