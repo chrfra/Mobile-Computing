@@ -37,10 +37,10 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
         //Try to load saved books from disk
         self.books = [NSKeyedUnarchiver unarchiveObjectWithFile:documentsDirectory];
         //Create and populate new list of books of it does not exist
-        //if(self.books == nil){
+        if(self.books == nil){
             self.books = [NSMutableArray array];
             [self addSampleBooks];
-        //}
+        }
     }
     [self saveChanges];
     return self;
@@ -76,24 +76,15 @@ static SimpleBookManager *sharedsimplebookmanager = nil;
 }
 
 - (void)moveBookAtIndex:(NSUInteger)from toIndex:(NSUInteger)to{
-    Book *book1 = [[self bookAtIndex:from] copy];
-    Book *book2 = [[self bookAtIndex:to] copy];
-    /*
-    [_books removeObjectAtIndex:to];
-    [_books removeObjectAtIndex:from];
-    */
-    
-    //Store the two indexes at which to swap books
-    /*
-    NSMutableIndexSet *mutableIndexSet = [[NSMutableIndexSet alloc] init];
-    [mutableIndexSet addIndex:from];
-    [mutableIndexSet addIndex:to];
-    NSArray *bookArray = [NSArray arrayWithObjects:book1, book2, nil];
-    */
-    /*[_books replaceObjectsAtIndexes:mutableIndexSet withObjects:bookArray];*/
-    
-    [_books insertObject:[self bookAtIndex:from] atIndex:(to+1)];
-    [_books removeObjectAtIndex:from];
+    //When moving a book further down the list, place it at the index after the book you dropped it on, since that book will be moved up once index
+    if(from<to){
+        [_books insertObject:[self bookAtIndex:from] atIndex:(to+1)];
+        [_books removeObjectAtIndex:from];
+    }else{
+        [_books insertObject:[self bookAtIndex:from] atIndex:(to)];
+        [_books removeObjectAtIndex:from+1];
+    }
+
     //[_books insertObject:book2 atIndex:from];
      
     
