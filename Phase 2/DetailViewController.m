@@ -83,7 +83,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
         //Send the current book to edit view
-        [[segue destinationViewController] setDetailItem: self.detailItem];
+      EditViewController *viewcontroller= (EditViewController*) [[segue destinationViewController] topViewController];
+    [viewcontroller setDetailItem:self.detailItem];
+    
+    //setDetailItem: self.detailItem
+    
+    
 }
 
 - (IBAction)unwindFromEdit:(UIStoryboardSegue*)sender{
