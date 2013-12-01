@@ -111,6 +111,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //Remove book from book manager
         [_manager removeBook:[_manager bookAtIndex:indexPath.row]];
+        [_manager saveChanges];
         //Update the tableview with animation on the removed cell
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
