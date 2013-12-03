@@ -17,4 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *ISBNField;
 @property (weak, nonatomic) IBOutlet UITextField *priceField;
 
+//The newly created book that is sent to the unwind funciton in masterviewcontroller
+@property (strong, nonatomic) Book *book;
+
 @end

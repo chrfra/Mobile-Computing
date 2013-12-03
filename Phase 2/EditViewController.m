@@ -42,8 +42,11 @@
 }
 
 //Interrupt changing view if no title has been entered, otherwise edit book
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ( _titleField.text.length>0 ){
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(UIButton *)sender {
+
+    //If title has been entered and  if the done button was pressed (done button is a UIButton, cancel is a UIBarButtonItem)
+    //Edit book and allow seque
+    if ( _titleField.text.length>0 && ([sender class] == [UIButton class]) ){
         Book *book =((Book *)_detailItem);
         //Read properties of book from text fields into detailItem (the book in the book manager
         book.title = _titleField.text;
@@ -55,12 +58,18 @@
         //Allow segue to be performed
         return true;
     }
+    //Cancel button pressed, don't create book & allow seque
+    else if ([sender class] != [UIButton class]){
+        return true;
+    }
+    //Done pressed but no title entered
     else{
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Book must have a title." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
-        return false;}
+        return false;
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated{

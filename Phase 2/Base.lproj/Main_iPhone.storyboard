@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rt7-hu-DxJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rt7-hu-DxJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -299,7 +299,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6y-MF-f7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="8"/>
+            <point key="canvasLocation" x="1332" y="64"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="0oW-8B-Otl">
@@ -389,6 +389,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="m9U-pC-ziL">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="49x-4c-n3I">
+                            <connections>
+                                <segue destination="ci1-Xw-Uml" kind="unwind" unwindAction="unwindFromEdit:" id="YOl-9l-rHV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="YR6-rk-IFx">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t53-iG-UAB">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
@@ -415,7 +420,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcE-7o-NvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ci1-Xw-Uml" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="8"/>
+            <point key="canvasLocation" x="1762" y="64"/>
         </scene>
         <!--New Book View Controller - Title-->
         <scene sceneID="0d2-IV-ois">
@@ -514,7 +519,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="zVB-Lz-H3G">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="nxU-IF-12v">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gm4-Ao-xct">
+                            <connections>
+                                <segue destination="dla-bK-aBd" kind="unwind" unwindAction="unwindFromCreateBook:" id="oaJ-tV-gg7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" style="plain" systemItem="done" id="nxU-IF-12v">
                             <connections>
                                 <segue destination="dla-bK-aBd" kind="unwind" unwindAction="unwindFromCreateBook:" id="cW2-qe-dhi"/>
                             </connections>
